@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import BlogCard from "../components/BlogCard.astro";
 
 // take the 5 most recent posts
-const blogPosts = (await Astro.glob("./*.{md,mdx}"))
+const blogPosts = (await Astro.glob("./posts/*.{md,mdx}"))
   .filter((post) => !post.frontmatter.draft)
   .sort(
     (a, b) =>
@@ -76,14 +76,14 @@ const tags = [
       class="flex flex-col justify-start space-y-6 1 max-w-3xl md:mx-auto lg:max-w-5xl xl:max-w-6xl mx-4"
     >
       {
-        blogPosts.map((post: any, idx) => (
+        blogPosts.map((post, idx) => (
           <>
             <BlogCard
               title={post.frontmatter.title}
               description={post.frontmatter.description}
               pubDate={post.frontmatter.pubDate}
               readTime={post.frontmatter.minutesRead}
-              link={post.url}
+              link={post.frontmatter.slug || post.url}
               tags={post.frontmatter.tags}
               image={post.frontmatter.image}
             />

@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 
 const postImportResult = import.meta.glob(
-  './*.md?(x)',
+  './posts/*.md?(x)',
   { eager: true }
 );
 const posts = Object.values(postImportResult).filter((post) => !post.frontmatter.draft);

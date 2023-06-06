@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import BlogCard from "../components/BlogCard.astro";
 
 // get all blog posts, filter out drafts, and sort by pubDate
-const blogPosts = (await Astro.glob("./*.{md,mdx}"))
+const blogPosts = (await Astro.glob("./posts/*.{md,mdx}"))
   .filter((post) => !post.frontmatter.draft)
   .sort(
     (a, b) =>
@@ -59,7 +59,7 @@ const tagCounts = blogPosts
             description={post.frontmatter.description}
             pubDate={post.frontmatter.pubDate}
             readTime={post.frontmatter.minutesRead}
-            link={post.url}
+            link={post.frontmatter.slug || post.url}
             image={post.frontmatter.image}
             tags={post.frontmatter.tags}
           />
