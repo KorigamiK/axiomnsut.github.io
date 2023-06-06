@@ -4,7 +4,7 @@ title: Exploring Socrates' Philosophy
 description: A brief introduction to Socrates' philosophy. Unveiling the Essence of Wisdom.
 pubDate: 06-05-2023
 tags: [life, philosophy, socrates]
-image: https://milkroll-images.s3.us-east-2.amazonaws.com/beach-sandwich.jpg
+image: /images/socrates.webp
 ---
 
 ## Introduction
