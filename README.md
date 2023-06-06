@@ -3,9 +3,11 @@
 ## 📚 Stack
 
 - Framework: [Astro](https://astro.build/)
-- Deployment: [Vercel](https://vercel.com/)
+  - Typescript
+  - React
+  - Svelte
+- Deployment: [GH-Pages](https://pages.github.com/)
 - Styling: [TailwindCSS](https://tailwindcss.com/)
-- Image Hosting: [AWS S3](https://aws.amazon.com/s3/)
 
 ## 📃 Features
 
