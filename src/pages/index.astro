@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogCard from "../components/BlogCard.astro";
+
+// take the 5 most recent posts
+const blogPosts = (await Astro.glob("./*.{md,mdx}"))
+  .filter((post) => !post.frontmatter.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  )
+  .slice(0, 5);
+
+const tags = [
+  ...new Set(blogPosts.map((post) => post.frontmatter.tags).flat()),
+];
+---
+
+<Layout
+  title="Axiom"
+  description="Axiom - The Philosophy Society of NSUT"
+  footer={true}
+  menu={false}
+  noresize={true}
+>
+  <!-- Hero -->
+  <header class="relative grid grid-cols-1 sm:grid-cols-8">
+    <!-- Socrates image -->
+    <img
+      src="/images/socrates.webp"
+      alt="Socrates"
+      class="z-0 row-start-1 sm:col-start-1 sm:col-span-4 order-2 sm:order-first max-w-md sm:max-w-[90%]"
+    />
+    <!-- Hero text -->
+    <div
+      class="row-auto sm:row-start-1 sm:col-start-4 sm:col-span-5 leading-none flex flex-col justify-end items-center text-center"
+    >
+      <div class="md:mb-10">
+        <h2 class="text-[6vw] sm:text-[calc((100vw/5)*0.22)] font-medium">
+          Philosophy Society of NSUT
+        </h2>
+        <h1 class="text-[10vw] sm:text-[calc((100vw/3)/2)] font-bold">AXIOM</h1>
+      </div>
+
+      <!-- Navbar -->
+      <nav
+        class="sm:pl-8 md:pl-14 w-full flex flex-row text-center mt-4 justify-stretch text-2xl font-normal border-t-2 border-black"
+      >
+        <a href="/about" class="w-full font-medium border-r-2 border-black py-2"
+          >About</a
+        >
+        <a href="/posts" class="w-full font-medium border-r-2 border-black py-2"
+          >Blog</a
+        >
+        <a
+          href="/events"
+          class="w-full font-medium border-r-2 border-black py-2">Events</a
+        >
+        <a href="/contact" class="w-full font-medium border-black py-2"
+          >Contact</a
+        >
+      </nav>
+    </div>
+  </header>
+
+  <main class="border-t-2 border-black">
+    <!-- Quotes -->
+    <section class="border-b-2 border-black px-4 py-2">
+      <p class="text-2xl font-medium">
+        “The Unexamined Life is not worth Living...”
+      </p>
+    </section>
+    <!-- Posts -->
+    <div
+      class="flex flex-col justify-start space-y-6 1 max-w-3xl md:mx-auto lg:max-w-5xl xl:max-w-6xl mx-4"
+    >
+      {
+        blogPosts.map((post: any, idx) => (
+          <>
+            <BlogCard
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              pubDate={post.frontmatter.pubDate}
+              readTime={post.frontmatter.minutesRead}
+              link={post.url}
+              tags={post.frontmatter.tags}
+              image={post.frontmatter.image}
+            />
+            {idx !== blogPosts.length - 1 && (
+              <hr class="border w-full border-t-black" />
+            )}
+          </>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
