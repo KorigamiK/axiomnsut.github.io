@@ -11,13 +11,7 @@ export interface Props {
   noresize?: boolean;
 }
 
-const {
-  title,
-  description,
-  footer = true,
-  menu = true,
-  noresize = false,
-} = Astro.props;
+const { title, description, footer = true, menu = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
