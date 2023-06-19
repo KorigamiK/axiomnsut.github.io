@@ -25,9 +25,7 @@ const {
   <head>
     <Head title={title} description={description} />
   </head>
-  <body
-    class=`${noresize ? '': 'max-w-3xl md:mx-auto lg:max-w-5xl xl:max-w-6xl ' } text-gray-900 antialiased`
-  >
+  <body>
     {menu && <Menu />}
     <slot />
     {footer && <Footer />}

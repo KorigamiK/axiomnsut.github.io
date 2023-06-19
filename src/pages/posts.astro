@@ -29,20 +29,17 @@ const tagCounts = blogPosts
   title="Axiom | All posts"
   description="Axiom's blog posts. It's all about Philosophy."
 >
-  <main>
-    <div
-      class="flex justify-center text-md md:text-lg items-center mt-4 space-x-3 font-mono font-bold mx-auto mb-7 max-w-sm md:max-w-lg"
-    >
-      <div
-        class="grid grid-cols-3 md:grid-cols-4 gap-y-4 gap-x-10 sm:text-left text-center"
-      >
+  <main
+    class="max-w-3xl md:mx-auto lg:max-w-5xl xl:max-w-6xl ' } text-gray-900 antialiased"
+  >
+    <div class="text-md md:text-lg my-4 font-serif">
+      <div class="grid grid-cols-3 gap-y-4 gap-x-10 w-full text-center">
         {
           tagCounts &&
             Object.keys(tagCounts).map((tag) => (
               <a
                 href={`/tags/${tag}`}
-                class="hover:underline decoration-emerald-500
-              "
+                class="hover:underline decoration-emerald-500"
               >
                 {tag}({tagCounts[tag]})
               </a>
