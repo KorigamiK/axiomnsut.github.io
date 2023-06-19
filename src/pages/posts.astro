@@ -29,10 +29,8 @@ const tagCounts = blogPosts
   title="Axiom | All posts"
   description="Axiom's blog posts. It's all about Philosophy."
 >
-  <main
-    class="max-w-3xl md:mx-auto lg:max-w-5xl xl:max-w-6xl ' } text-gray-900 antialiased"
-  >
-    <div class="text-md md:text-lg my-4 font-serif">
+  <main class="max-w-3xl md:mx-auto lg:max-w-5xl xl:max-w-6xl antialiased">
+    <div class="text-md md:text-lg my-4 font-serif text-gray-600">
       <div class="grid grid-cols-3 gap-y-4 gap-x-10 w-full text-center">
         {
           tagCounts &&
@@ -48,7 +46,7 @@ const tagCounts = blogPosts
       </div>
     </div>
 
-    <div class="flex flex-col justify-center items-center space-y-6">
+    <div class="flex flex-col justify-center items-center space-y-6 py-14">
       {
         blogPosts.map((post) => (
           <BlogCard
