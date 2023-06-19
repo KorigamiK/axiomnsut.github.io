@@ -1,24 +1,38 @@
 ---
 ---
 
-<nav class="pt-10 text-left font-sans mb-10">
-  <div class="container mx-auto flex justify-between items-center">
-    <button onclick="
-    window.location.href = '/'
-    ">
-      <div class="hover:underline text-center">
+<nav class="font-serif pt-10 flex justify-center mb-10">
+  <div class="w-full flex flex-col justify-between items-center">
+    <a href="/">
+      <!-- <div class="hover:underline text-center">
         <h1 class="font-bold text-xl">AXIOM</h1>
         <h1 class="font-bold text-xl">NSUT</h1>
+      </div> -->
+      <div class="flex flex-col items-center text-center">
+        <h2
+          class="text-4xl md:text-[calc((100vw/5)*0.22)] font-medium leading-none"
+        >
+          Philosophy Society of NSUT
+        </h2>
+        <h1 class="text-8xl md:text-[calc((100vw/3)/2)] font-bold leading-none">
+          AXIOM
+        </h1>
       </div>
-    </button>
-    <nav class="font-semibold text-xl">
-      <ul class="flex">
-        <li>
-          <a href="/about" class="hover:cursor-pointer hover:underline">
-            ABOUT
-          </a>
-        </li>
-      </ul>
+    </a>
+    <nav
+      class="w-full flex flex-row text-center mt-4 justify-stretch text-base sm:text-2xl font-normal border-y-2 border-black"
+    >
+      <a href="/about" class="w-full font-medium border-r-2 border-black py-2"
+        >About</a
+      >
+      <a href="/posts" class="w-full font-medium border-r-2 border-black py-2"
+        >Blog</a
+      >
+      <a href="/events" class="w-full font-medium border-r-2 border-black py-2"
+        >Events</a
+      >
+      <a href="/contact" class="w-full font-medium border-black py-2">Contact</a
+      >
     </nav>
   </div>
 </nav>

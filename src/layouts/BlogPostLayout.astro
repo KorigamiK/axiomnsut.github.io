@@ -23,7 +23,7 @@ const { frontmatter } = Astro.props;
     <main
       class="antialiased mx-4 md:my-0 my-4 md:max-w-3xl md:mx-auto max-w-3xl lg:max-w-4xl"
     >
-      <div class="flex flex-col md:flex-row">
+      <div class="font-serif flex flex-col md:flex-row">
         {
           frontmatter.image && (
             <img
@@ -34,14 +34,14 @@ const { frontmatter } = Astro.props;
           )
         }
         <h1
-          class="md:leading-tight text-3xl lg:text-6xl md:text-5xl sm:text-4xl font-bold md:self-end self-center"
+          class="md:leading-tight mt-2 text-5xl lg:text-6xl sm:text-4xl font-bold md:self-end self-center text-center sm:text-left"
         >
           {frontmatter.title}
         </h1>
       </div>
-      <div class="text-sm sm:text-lg my-8">
+      <div class="font-serif text-sm sm:text-lg my-8">
         <time datetime={frontmatter.pubDate}>
-          published
+          Published
           {
             new Date(frontmatter.pubDate).toLocaleDateString("en-us", {
               year: "numeric",
@@ -53,20 +53,23 @@ const { frontmatter } = Astro.props;
         <ul class="flex">
           {
             frontmatter.tags.map((tag: any, idx: number) => (
-              <li class={idx === 0 ? "" : "ml-2"}>
-                <a
-                  href={`/tags/${tag}`}
-                  class="text-sm sm:text-lg text-neutral-700 hover:text-gray-900 underline"
-                >
-                  {tag}
-                </a>
-              </li>
+              <>
+                <li class={idx === 0 ? "" : "ml-2"}>
+                  <a
+                    href={`/tags/${tag}`}
+                    class="text-sm sm:text-lg text-neutral-700 hover:text-gray-900 underline"
+                  >
+                    {tag}
+                  </a>
+                </li>
+                &nbsp;{idx !== frontmatter.tags.length - 1 && "⋅"}
+              </>
             ))
           }
         </ul>
       </div>
       <article
-        class="max-w-full prose antialiased prose-headings:font-bold prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-10 prose-headings:text-neutral-800 prose-p:text-xl prose-p:leading-8 prose-p:text-neutral-800 1md:my-0 my-4 prose-li:text-lg prose-a:text-black-500"
+        class="max-w-full prose antialiased prose-headings:font-bold prose-h2:font-serif prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-10 prose-headings:text-neutral-800 prose-p:text-xl prose-p:leading-8 prose-p:text-neutral-800 1md:my-0 my-4 prose-li:text-lg prose-a:text-black-500"
       >
         <slot />
       </article>
