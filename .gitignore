@@ -131,3 +131,6 @@ dist
 public/images/lain.png
 src/pages/NewYear2023.md
 .astro/
+
+yarn.lock
+package.lock
