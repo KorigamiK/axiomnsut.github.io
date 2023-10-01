@@ -134,3 +134,4 @@ src/pages/NewYear2023.md
 
 yarn.lock
 package.lock
+pnpm-lock.yaml
